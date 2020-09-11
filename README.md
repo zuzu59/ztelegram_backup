@@ -1,6 +1,6 @@
 # ztelegram_backup
 Permet de sauvegarder automatiquement un groupe de discussion Telegram
-zf200911.1433
+zf200911.1438
 
 **ATTENTION**
 
@@ -23,6 +23,10 @@ Puis simplement:
 ./test1.sh
 ```
 
+Puis après dans une autre console:
+```
+tail -f BackupChat.txt
+```
 
 
 

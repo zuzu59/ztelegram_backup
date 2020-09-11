@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
-#Petit script pour démarrer l'enregistrement des logs en version simple
+#Petit script pour tester la récupération des messages sur Telegram afin de pouvoir les sauver
 
 # source: https://stackoverflow.com/questions/32034032/how-to-backup-telegram-chat
 
 echo -e "
-test1.sh.sh  zf200911.1300"
+test1.sh.sh  zf200911.1433"
 
-#!/bin/bash
+# Il faut faire avant dans son terminal un:
+# export zbackup_telegram_token=xxx
+# avec son token personnel
 
-TOKEN='YourBot:Token'
+# ou chez moi:
+# source /keybase/private/zuzu59/ztelegram_backup/secrets_ztelegram_backup.sh
+
+TOKEN=$zbackup_telegram_token
 
 URL='https://api.telegram.org/bot'$TOKEN
 
 UPD_URL=$URL'/getUpdates?offset='
+echo $UPD_URL
 
+#exit
 
 function get_offset {
 
@@ -22,12 +29,10 @@ function get_offset {
         OFFSET=$((OFFSET+1))
 }
 
-
 while :
     do
 
 get_offset
-
 
 if echo $res | grep "message"
 
